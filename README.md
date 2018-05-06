@@ -1,2 +1,2 @@
-# RajorPay-Helper
+# RazorPay-Helper
 Razor Pay helper | Vanilla JS
