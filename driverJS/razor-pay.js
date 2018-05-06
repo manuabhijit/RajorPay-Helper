@@ -1,4 +1,4 @@
-const RAJOR_PAY_APP_KEY = '';
+const RAJOR_PAY_APP_KEY = 'rzp_test_AFegzSP1Wjb6Zj';
 
 var RajorPayImport = document.createElement('script');
 RajorPayImport.src = 'https://checkout.razorpay.com/v1/checkout.js';
@@ -79,20 +79,3 @@ var RajorPay = {
     failure : function (){ console.log("response as failure"); }
   }
 };
-
-
-
-// Sample Usage
-var user = {
-  name : "Abhijit",
-  email : "manuabhijit@gmail.com",
-  address: "Mumbai East"
-}
-
-var pay = {
-  amount : 100
-}
-
-setTimeout(function(){
-  RajorPay.pay(user, pay);
-}, 3000);

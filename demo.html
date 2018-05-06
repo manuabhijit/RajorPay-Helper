@@ -11,5 +11,21 @@
 <body>
 
   <script src='driverJS/razor-pay.js'></script>
+  <script>
+    // Sample Usage
+    var user = {
+      name : "Abhijit",
+      email : "manuabhijit@gmail.com",
+      address: "Mumbai East"
+    }
+
+    var pay = {
+      amount : 100
+    }
+
+    setTimeout(function(){
+      RajorPay.pay(user, pay);
+    }, 3000);
+  </script>
 </body>
 </html>
