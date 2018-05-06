@@ -2,7 +2,6 @@ const RAJOR_PAY_APP_KEY = 'rzp_test_AFegzSP1Wjb6Zj';
 
 var RajorPayImport = document.createElement('script');
 RajorPayImport.src = 'https://checkout.razorpay.com/v1/checkout.js';
-RajorPayImport.setAttribute('data-amount', "5000");
 RajorPayImport.setAttribute('data-buttontext', "Pay with Razorpay");
 RajorPayImport.setAttribute('data-name', "GST EDGE");
 RajorPayImport.setAttribute('data-description', "https://your-awesome-site.com/your_logo.jpg");
@@ -42,19 +41,21 @@ var RajorPay = {
   generateOptions: function(userData, paydata){
     let options = {
         key: RAJOR_PAY_APP_KEY,
-        amount: paydata.amount, // 2000 paise = INR 20
+        amount: paydata.amount.toString(),
         handler: RajorPay.handler,
         prefill: {
             name: typeof(userData.name) === 'string' ? userData.name : '',
             email: typeof(userData.email) === 'string' ? userData.email: ''
         },
-        notes: {
-            address: userData.address
-        },
+        notes: typeof(userData.notes) === 'object' ? userData.notes : {
+          submissionURL: window.location
+        } ,
         modal:{
           ondismiss: RajorPay.ondismiss
         }
     };
+
+    console.log("options", options);
 
     return options;
   },
